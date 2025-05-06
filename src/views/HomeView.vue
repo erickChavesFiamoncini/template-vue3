@@ -2,8 +2,11 @@
 import { onMounted, ref } from 'vue';
 import { PassageUser } from '@passageidentity/passage-elements/passage-user';
 import { useAuthStore } from '@/stores/auth';
+import { useCategoriaStore } from '@/stores/categoria'
+
 
 const authStore = useAuthStore();
+const CategoriaStore = useCategoriaStore();
 const psg_auth_token = ref('');
 const copyMessageVisible = ref(false);
 
@@ -34,9 +37,11 @@ const copyToClipboard = () => {
   });
 };
 
-onMounted(() => {
+onMounted( async () => {
   getUserInfo();
+  await CategoriaStore.getCategorias
 });
+
 </script>
 
 <template>

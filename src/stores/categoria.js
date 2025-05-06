@@ -28,10 +28,11 @@ export const useCategoriaStore = defineStore('categoria', () => {
 
   async function getCategorias(page = 1, search = '') {
     const data = await categoriaApi.buscarTodasAsCategorias(page, search)
-    categorias.value = data.results
+    categorias.value = data
     meta.value.page = data.page
     meta.value.page_size = data.page_size
     meta.value.total_pages = data.total_pages
+    console.log(data)
   }
 
   async function search(text) {

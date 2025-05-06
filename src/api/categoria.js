@@ -10,7 +10,7 @@ export default class CategoriaApi {
   }
   async atualizarCategoria(categoria) {
     const { data } = await axios.put(`/categorias/${categoria.id}/`, categoria);
-    return data.results;
+    return data;
   }
   async excluirCategoria(id) {
     await axios.delete(`/categorias/${id}/`);

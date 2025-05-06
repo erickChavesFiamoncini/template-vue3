@@ -20,7 +20,7 @@ const livro = reactive({ ...defaultLivro });
 
 onMounted(async () => {
   // livros.value = await livrosApi.buscarTodosOsLivros();
-  await categoriaStore.getCategorias();
+ await categoriaStore.getCategorias();
 });
 
 function limpar() {
@@ -90,6 +90,9 @@ function mostrar() {
         <button @click="excluir(livro.id)">Excluir</button>
       </li>
     </ul>
+    <div>
+      {{ categoriaStore.categorias }}
+    </div>
   </div>
 </template>
 
